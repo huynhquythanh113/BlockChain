@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>BLockchain</title>
     <script src="index.js"></script>
 </head>
+
 <body>
     <button onclick="getAccount()">Show Account</button>
     <h2>Account: <span id="showAccount">Undefine</span></h2>
@@ -16,20 +18,22 @@
     <button onclick="checkBalanceFromConstract()">Check Balance from constract</button>
     <button onclick="goToInfor()">Page infor</button>
     <script>
-     function connectWallet() {
-        if(window.ethereum.isConnected()){
-              alert("Login success! ");}
-               else {
-                alert("Log acc faileed");
-               }
+        function connectWallet() {
+            if (window.ethereum.isConnected()) {
+                alert("Login success! ");
+                goToInfor();
             }
-    function goToInfor(){
-        window.location="http://127.0.0.1:5500/infor.html";
-
-    }
+            else {
+                alert("Log acc faileed");
+            }
+        }
+        function goToInfor() {
+            window.location = "http://127.0.0.1:5500/product.html";
+        }
     </script>
     <script>
-    
-        </script>
+
+    </script>
 </body>
+
 </html>
