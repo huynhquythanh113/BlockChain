@@ -31,7 +31,7 @@ async function getAccount() {
     const account = accounts[0];
     document.getElementById("showAccount").innerHTML = account;
     console.log(window.ethereum.isConnected())
-    console.log(account)
+    console.log(accounts)
     if (provider) {
   startApp(provider); // Initialize your app
 } else {
@@ -56,9 +56,9 @@ async function sendTransaction(){
     let params = [
         {
           from: accounts[0],
-          to: accounts[0],
-          gas: "0x76c0", // Number(30400).toString(16)
-          gasPrice: "0x9184e72a000", // 10000000000000
+          to: '0x59A7ceF8D80B8593e05CB7F9d568C3d67c89d8e3',
+          gas:  Number(304000).toString(16),
+          gasPrice: Number(100000).toString(16),// 10000000000000
           value: "0x9184e72a", // 2441406250
           data: "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
         },
