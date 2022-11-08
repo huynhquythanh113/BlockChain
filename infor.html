@@ -11,10 +11,13 @@
 <body>
 
 </body>
-<script>
-    if (!window.ethereum.isConnected()) {
-        window.location = "http://127.0.0.1:5500/info.html";
-    }
-</script>
-
+    <script>
+        let lastname = sessionStorage.getItem("lastname1");
+        if(lastname){
+            alert("helo");
+        }
+        else {
+            window.location.assign("http://localhost:5500/index.html")
+        }
+    </script>
 </html>

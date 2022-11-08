@@ -24,16 +24,16 @@ async function connectWallet() {
 }
 
 async function getAccount() {
-  accounts = await ethereum.request({ method: "eth_requestAccounts" });
-  const account = accounts[0];
-  document.getElementById("showAccount").innerHTML = account;
-  console.log(window.ethereum.isConnected());
-  console.log(account);
-  if (provider) {
-    startApp(provider); // Initialize your app
-  } else {
-    console.log("Please install MetaMask!");
-  }
+    accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+    const account = accounts[0];
+    document.getElementById("showAccount").innerHTML = account;
+    console.log(window.ethereum.isConnected())
+    console.log(account)
+    if (provider) {
+  startApp(provider); // Initialize your app
+} else {
+  console.log('Please install MetaMask!');
+}
 }
 
 async function checkBalance() {
@@ -47,20 +47,21 @@ async function checkBalance() {
   console.log(parseInt(balance));
 }
 
-async function sendTransaction() {
-  accounts = await ethereum.request({ method: "eth_requestAccounts" });
-  let params = [
-    {
-      from: accounts[0],
-      to: "0x64Ee8613c03Eff801711365a4484263517d47684",
-      gas: "0x76c0", // Number(30400).toString(16)
-      gasPrice: "0x9184e72a000", // 10000000000000
-      value: "0x9184e72a", // 2441406250
-      data: "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
-    },
-  ];
-  console.log(accounts);
-  window.ethereum.request({ method: "eth_sendTransaction", params });
+
+async function sendTransaction(){
+   accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+    let params = [
+        {
+          from: accounts[0],
+          to: accounts[0],
+          gas: "0x76c0", // Number(30400).toString(16)
+          gasPrice: "0x9184e72a000", // 10000000000000
+          value: "0x9184e72a", // 2441406250
+          data: "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
+        },
+      ]
+    console.log(accounts)
+    window.ethereum.request({method :"eth_sendTransaction",params})
 }
 
 let addressConstrac = "0xd9145CCE52D386f254917e481eB44e9943F39138";
