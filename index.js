@@ -52,7 +52,7 @@ async function sendTransaction() {
   let params = [
     {
       from: accounts[0],
-      to: accounts[0],
+      to: "0x64Ee8613c03Eff801711365a4484263517d47684",
       gas: "0x76c0", // Number(30400).toString(16)
       gasPrice: "0x9184e72a000", // 10000000000000
       value: "0x9184e72a", // 2441406250
