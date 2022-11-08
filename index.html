@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>BLockchain</title>
     <script src="index.js"></script>
 </head>
+
 <body>
     <button onclick="getAccount()">Show Account</button>
     <h2>Account: <span id="showAccount">Undefine</span></h2>
@@ -18,21 +20,20 @@
     <span id="span"></span>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-     function connectWallet() {
+     function connectWallet() 
         if(window.ethereum.isConnected()){
            // sessionStorage.setItem("lastname", "Smith");  
             window.location.assign("http://localhost:5500/infor.html")
         }
                else {
                 alert("Log acc faileed");
-               }
             }
     function goToInfor(){
 
     }
     </script>
     <script>
-    
-        </script>
+
+    </script>
 </body>
 </html>
