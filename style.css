@@ -30,9 +30,10 @@ body {
     max-width: 100%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 200px auto 300px;
+    grid-template-columns: auto;
     border-radius: 30px;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 .container .menu {
@@ -133,7 +134,7 @@ body {
 .center .list {
     padding: 0 20px 20px;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
     column-gap: 20px;
     row-gap: 20px;
     height: 80vh;

@@ -47,6 +47,7 @@ async function checkBalance() {
   console.log(parseInt(balance));
 }
 
+
 async function sendTransaction(){
    accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     let params = [
