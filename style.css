@@ -156,18 +156,25 @@ body {
     height: 80vh;
     overflow: auto;
 }
-
+td
+{
+ max-width: 100px;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ white-space: nowrap;
+}
 .item {
     background-color: var(--white);
     display: grid;
-    grid-template-columns: 20% auto;
+    grid-template-columns: 60% auto;
     padding: 10px;
     column-gap: 20px;
     border-radius: 20px;
 }
 
 .item .img img {
-    height: 70px;
+    height: 200px;
+    width: 200px;
 }
 
 .item .img {

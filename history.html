@@ -26,6 +26,11 @@
 
 <body>
     <div class="container">
+        <div class="menu">
+
+
+        </div>
+
         <div class="center">
             <div class="search">
                 <div class="logo">
@@ -33,33 +38,45 @@
                 </div>
                 <div class="form">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search..." id="searchWallet">
-                    <button id="btn-search" onclick="searchWallet()">Search</button>
+                    <input type="text" placeholder="Search...">
+                    <button>Search</button>
                 </div>
-                <div class=" user-action">
+                <div class="user-action">
                     <div class="form">
                         <button type="button" onclick="pageHome()">Home page</button>
                     </div>
                     <div class="form">
-                        <button type="button" onclick="pageHistory()">
-                            History transaction
+                        <button type="button" onclick="pageMyProduct()">
+                            My product
                         </button>
                     </div>
                     <div class="form">
-                        <button type="button" data-toggle="modal" data-target="#exampleModalLong">
+                        <button type="button" data-toggle="modal" data-target="#exampleModalLong1">
                             Send ETH
                         </button>
                     </div>
                 </div>
             </div>
-            <div class="list-action">
-                <h2>My Product</h2>
-                <button type="button" class="add" data-toggle="modal" data-target="#exampleModalLong1">
-                    Add product
-                </button>
-            </div>
-            <div class="list" id="list-card">
-                <!-- <div class="item" data-key="1">
+        </div>
+        <h2>HISTORY TRANSACTION</h2>
+        <div class="table-responsive text-nowrap">
+            <table class="table table-dark table-striped" style="table-layout: fixed;">
+                <thead style="width: 50px">
+                    <tr style="width: 50px">
+                        <th scope="col" style="width:40px">ID</th>
+                        <th scope="col" class="overflow-auto">TransId</th>
+                        <th class="overflow-auto">From</th>
+                        <th class="overflow-auto">To</th>
+                        <th scope="col">Value</th>
+                        <th class="overflow-auto">Date</th>
+                    </tr>
+                </thead>
+                <tbody id="list-table">
+
+                </tbody>
+            </table>
+        </div>
+        <!-- <div class="item" data-key="1">
                     <div class="img">
                         <img src="./images/img2.png" alt="">
                     </div>
@@ -70,9 +87,9 @@
                             Labore animi voluptatum, odio sed libero ipsa?
                         </div>
                         <div class="price">$20.03</div>
-                        <button type="button" class="add" data-toggle="modal"
-                            data-target="#exampleModalLong1">Edit</button>
-                        <button class="remove" onclick="Remove(1)"><i class="fa-solid fa-trash-can fa-lg"></i></button>
+                        <input type="number" class="count" min="1" value="1">
+                        <button type="button" class="add" data-toggle="modal" data-target="#exampleModalLong1">Buy</button>
+                        <button class="remove" onclick="Remove(1)"><i class="fa-solid fa-trash-can"></i></button>
                     </div>
                 </div>
 
@@ -90,7 +107,7 @@
                         <div class="price">$20.03</div>
                         <input type="number" class="count" min="1" value="1">
                         <button class="add">Buy</button>
-                        <button class="remove" onclick="Remove(2)"><i class="fa-solid fa-trash-can">helo</i></button>
+                        <button class="remove" onclick="Remove(2)"><i class="fa-solid fa-trash-can"></i></button>
                     </div>
                 </div>
 
@@ -127,89 +144,89 @@
                         <button class="remove" onclick="Remove(4)"><i class="fa-solid fa-trash-can"></i></button>
                     </div>
                 </div> -->
-            </div>
-        </div>
+
+
+
+
+
         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Form transaction</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form class="form-modal" onsubmit="sendTransaction(); return false">
+                    <form class="form-modal">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Address wallet</label>
-                            <input required type="text" name="wallet" class="form-control" id="exampleInputEmail1"
+                            <input type="email" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Value ETH</label>
-                            <input required type="number" step="0.0000001" placeholder="Only number" name="value1"
-                                class="form-control" id="exampleInputPassword1">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
                         </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">We suggest gas and gas price</label>
-                            <select class="form-control form-select form-select-lg mb-3" id="selectGas"
-                                aria-label=".form-select-lg example" onchange="chooseGas()">
-                                <option selected value="0">I set gas and gas price</option>
-                                <option value="1">Maybe in 30 seconds</option>
-                                <option value="2">Likely in less 30 seconds</option>
-                                <option value="3">Very likely in less 15 seconds</option>
-                            </select>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
                         </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Gas</label>
-                            <input required type="number" step="0.0000001" placeholder="Only number" name="gas"
-                                class="form-control" id="gas">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Gas price</label>
-                            <input required type="number" step="0.0000001" placeholder="Only number" name="gasPrice"
-                                class="form-control" id="gasPrice">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Send ETH</button>
-                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Form confirm buy</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form class="form-modal" id="form-buy" onsubmit="sellETH(); return false">
+                <form class="form-modal" onsubmit="sendTransaction(); return false">
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Name title</label>
-                        <input required type="text" step="0.0000001" placeholder="Name title" name="name"
-                            class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Image for sell</label>
-                        <input required type="file" name="file" class="form-control" id="file-selector"
-                            aria-describedby="emailHelp" accept=".jpg, .jpeg, .png">
-                        <img id="output">
+                        <label for="exampleInputEmail1" class="form-label">Address wallet</label>
+                        <input required type="text" name="wallet" class="form-control" id="wallet"
+                            aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Value ETH</label>
-                        <input required type="number" step="0.0000001" placeholder="Only number" name="value"
-                            class="form-control" id="exampleInputPassword1">
+                        <input required type="number" step="0.0000001" placeholder="Only number" name="value1"
+                            class="form-control" id="value1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">We suggest gas and gas price</label>
+                        <select class="form-control form-select form-select-lg mb-3" id="selectGas"
+                            aria-label=".form-select-lg example" onchange="chooseGas()">
+                            <option selected value="0">I set gas and gas price</option>
+                            <option value="1">Maybe in 30 seconds</option>
+                            <option value="2">Likely in less 30 seconds</option>
+                            <option value="3">Very likely in less 15 seconds</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Gas</label>
+                        <input required type="number" step="0.0000001" placeholder="Only number" name="gas"
+                            class="form-control" id="gas">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Gas price</label>
+                        <input required type="number" step="0.0000001" placeholder="Only number" name="gasPrice"
+                            class="form-control" id="gasPrice">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Sell</button>
+                        <button type="submit" class="btn btn-primary">Buy ETH</button>
                     </div>
                 </form>
             </div>
@@ -229,99 +246,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-        const fileSelector = document.getElementById('file-selector');
-        const output = document.getElementById('output');
-        fileSelector.addEventListener('change', (event) => {
-            const fileList = event.target.files;
-            const file = event.target.files[0];
-            console.log(fileList);
-            console.log(file);
-            const reader = new FileReader();
-            reader.addEventListener('load', event => {
-                output.src = event.target.result;
-                console.log(event.target.result);
-            });
-            reader.readAsDataURL(file);
-        });
-    </script>
-    <script>
-        getMyproduct();
-//         const a = window.location.href;
-//         var url = new URL(a);
-//         var c = url.searchParams.get("wallet");
-//         console.log(c);
-//         if (c != null) {
-//             const reponse = axios
-//                 .get(`https://blockccapi.herokuapp.com/product/${c}`)
-//                 .then((reponse) => {
-//                     const data = reponse.data;
-//                     const container = document.getElementById('list-card');
-//                     data.forEach((result, idx) => {
-//                         // Create card element
-//                         const card = document.createElement('div');
-//                         card.classList = 'card-body';
-//                         // Construct card content
-//                         const content = `
-//   <div class="item" data-key="${result.id}">
-//                     <div class="img">
-//                         <img src="${result.img}" alt="">
-//                     </div>
-//                     <div class="content">
-//                         <div class="title">${result.name}</div>
-//                         <div class="price">${result.value} ETH</div>
-//                         <button type="button" class="add" data-toggle="modal"
-//                             data-target="#exampleModalLong1">Edit</button>
-//                         <button class="remove" onclick="Remove(1)"><i class="fa-solid fa-trash-can fa-lg"></i></button>
-//                     </div>
-//                 </div>
-// `;
-
-//                         // Append newyly created card element to the container
-//                         container.innerHTML += content;
-//                     })
-//                     console.log(data);
-//                 })
-//                 .catch((error) => {
-//                     console.log(error);
-//                 });
-//             console.log(reponse);
-//         }
-//         else {
-//             const reponse = axios
-//                 .get(`https://blockccapi.herokuapp.com/product`)
-//                 .then((reponse) => {
-//                     const data = reponse.data;
-//                     const container = document.getElementById('list-card');
-//                     data.forEach((result, idx) => {
-//                         // Create card element
-//                         const card = document.createElement('div');
-//                         card.classList = 'card-body';
-//                         // Construct card content
-//                         const content = `
-//   <div class="item" data-key="${result.id}">
-//                     <div class="img">
-//                         <img src="${result.img}" alt="">
-//                     </div>
-//                     <div class="content">
-//                         <div class="title">${result.name}</div>
-//                         <div class="price">${result.value} ETH</div>
-//                         <button type="button" class="add" data-toggle="modal"
-//                             data-target="#exampleModalLong1">Edit</button>
-//                         <button class="remove" onclick="Remove(${result.id})"><i class="fa-solid fa-trash-can fa-lg"></i></button>
-//                     </div>
-//                 </div>
-// `;
-
-//                         // Append newyly created card element to the container
-//                         container.innerHTML += content;
-//                     })
-//                     console.log(data);
-//                 })
-//                 .catch((error) => {
-//                     console.log(error);
-//                 });
-//             console.log(reponse);
-//         }
+        getTrans();
 //         const apiResult = [{
 //             title: "title1",
 //             description: "desc1",
