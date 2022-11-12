@@ -2,60 +2,67 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
 </head>
 
 <body>
-    <div class="container">
-        <div class="menu">
+  <div class="container">
+    <div class="menu">
 
 
+    </div>
+
+    <div class="center">
+
+      <div class="search">
+        <div class="logo">
+          <a href="./index.html"> BLOCK<span>CHAIN</span></a>
         </div>
-
-        <div class="center">
-
-            <div class="search">
-                <div class="logo">
-                    <a href="./index.html"> BLOCK<span>CHAIN</span></a>
-                </div>
-                <div class="form">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search...">
-                    <button>Search</button>
-                </div>
-                <div class="user-action">
-                <div class="form">
-                    <button type="button"  onclick="pageMyProduct()">
-                        My product
-                    </button>
-                </div>
-                <div class="form">
-                    <button type="button"  data-toggle="modal" data-target="#exampleModalLong">
-                        History transaction
-                    </button>
-                </div>
-                <div class="form">
-                    <button type="button"  data-toggle="modal" data-target="#exampleModalLong">
-                        Send ETH
-                    </button>
-                </div>
-            </div>
-            </div>
-            <h2>PRODUCTS</h2>
-            <div class="list">
-                <div class="item" data-key="1">
+        <div class="form">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search...">
+          <button>Search</button>
+        </div>
+        <div class="user-action">
+          <div class="form">
+            <button type="button" onclick="pageMyProduct()">
+              My product
+            </button>
+          </div>
+          <div class="form">
+            <button type="button" onclick="pageHistory()">
+              History transaction
+            </button>
+          </div>
+          <div class="form">
+            <button type="button" data-toggle="modal" data-target="#exampleModalLong1">
+              Send ETH
+            </button>
+          </div>
+        </div>
+      </div>
+      <h2>PRODUCTS</h2>
+      <div class="list" id="list">
+        <!-- <div class="item" data-key="1">
                     <div class="img">
                         <img src="./images/img2.png" alt="">
                     </div>
@@ -122,93 +129,265 @@
                         <button class="add">Buy</button>
                         <button class="remove" onclick="Remove(4)"><i class="fa-solid fa-trash-can"></i></button>
                     </div>
-                </div>
+                </div> -->
 
 
+      </div>
+
+    </div>
+    <div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Form transaction</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form class="form-modal" onsubmit="sendTransaction(); return false">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Address wallet</label>
+              <input required type="text" name="wallet" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp">
             </div>
-
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Value ETH</label>
+              <input required type="number" step="0.0000001" placeholder="Only number" name="value1"
+                class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">We suggest gas and gas price</label>
+              <select class="form-control form-select form-select-lg mb-3" id="selectGas"
+                aria-label=".form-select-lg example" onchange="chooseGas()">
+                <option selected value="0">I set gas and gas price</option>
+                <option value="1">Maybe in 30 seconds</option>
+                <option value="2">Likely in less 30 seconds</option>
+                <option value="3">Very likely in less 15 seconds</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Gas</label>
+              <input required type="number" step="0.0000001" placeholder="Only number" name="gas" class="form-control"
+                id="gas">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Gas price</label>
+              <input required type="number" step="0.0000001" placeholder="Only number" name="gasPrice"
+                class="form-control" id="gasPrice">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Send ETH</button>
+            </div>
+          </form>
         </div>
-        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">Form transaction</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <form class="form-modal">
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Address wallet</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    </div>
-                    <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </form>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
-                </div>
-              </div>
-            </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Form confirm buy</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form class="form-modal" onsubmit="buyTransaction(); return false">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Address wallet</label>
+            <input disabled required type="text" name="wallet1" class="form-control" id="wallet"
+              aria-describedby="emailHelp">
           </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Value ETH</label>
+            <input disabled required type="number" step="0.0000001" placeholder="Only number" name="value11"
+              class="form-control" id="value1">
           </div>
-          <div class="modal fade" id="exampleModalLong1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">Form confirm buy</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <form>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Address from</label>
-                        <input disabled type="email" class="form-control" id="disabledTextInput" aria-describedby="emailHelp">
-                      </div>
-                      <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Address to</label>
-                        <input disabled type="email" class="form-control" id="disabledTextInput" aria-describedby="emailHelp">
-                      </div>
-                      <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Value</label>
-                        <input disabled type="email" class="form-control" id="disabledTextInput" aria-describedby="emailHelp">
-                      </div>
-                    <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Gas </label>
-                      <input disabled type="password" class="form-control" id="disabledTextInput">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Gas Price </label>
-                        <input disabled type="password" class="form-control" id="disabledTextInput">
-                      </div>
-                  </form>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="sendTransaction()">Confirm</button>
-                </div>
-              </div>
-            </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">We suggest gas and gas price</label>
+            <select class="form-control form-select form-select-lg mb-3" id="selectGas1"
+              aria-label=".form-select-lg example" onchange="chooseGas1()">
+              <option selected value="0">I set gas and gas price</option>
+              <option value="1">Maybe in 30 seconds</option>
+              <option value="2">Likely in less 30 seconds</option>
+              <option value="3">Very likely in less 15 seconds</option>
+            </select>
           </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Gas</label>
+            <input required type="number" step="0.0000001" placeholder="Only number" name="gas1" class="form-control"
+              id="gas1">
           </div>
-        <!-- <div class="cart">
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Gas price</label>
+            <input required type="number" step="0.0000001" placeholder="Only number" name="gasPrice1"
+              class="form-control" id="gasPrice1">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Buy ETH</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- <div class="cart">
             <div class="name">HISTORY TRANSACTION</div>
             <div class="listCart">
 
             </div>
         </div> -->
-    </div>
+  </div>
 
-    <script src="./main.js"></script>
-    <script src="./index.js"></script>
+  <script src="./main.js"></script>
+  <script src="./index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    const fileSelector = document.getElementById('file-selector');
+    const output = document.getElementById('output');
+    fileSelector.addEventListener('change', (event) => {
+      const fileList = event.target.files;
+      const file = event.target.files[0];
+      console.log(fileList);
+      console.log(file);
+      const reader = new FileReader();
+      reader.addEventListener('load', event => {
+        output.src = event.target.result;
+        console.log(event.target.result);
+      });
+      reader.readAsDataURL(file);
+    });
+  </script>
+  <script>
+    const a = window.location.href;
+    var url = new URL(a);
+    var c = url.searchParams.get("wallet");
+    console.log(c);
+    if (c != null) {
+      const reponse = axios
+        .get(`https://blockccapi.herokuapp.com/product/${c}`)
+        .then((reponse) => {
+          const data = reponse.data;
+          const container = document.getElementById('list');
+          data.forEach((result, idx) => {
+            // Create card element
+            const card = document.createElement('div');
+            card.classList = 'card-body';
+            // Construct card content
+            const content = `
+<div class="item" data-key="${result.id}">
+                <div class="img">
+                    <img src="${result.img}" alt="">
+                </div>
+                <div class="content">
+                    <div class="title">${result.name}</div>
+                    <div class="price">${result.value} ETH</div>
+                    <button type="button" class="add" data-toggle="modal"
+                        data-target="#exampleModalLong1">Edit</button>
+                    <button class="remove" onclick="Remove(1)"><i class="fa-solid fa-trash-can fa-lg"></i></button>
+                </div>
+            </div>
+`;
+
+            // Append newyly created card element to the container
+            container.innerHTML += content;
+          })
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      console.log(reponse);
+    }
+    else {
+      const reponse = axios
+        .get(`https://blockccapi.herokuapp.com/product`)
+        .then((reponse) => {
+          const data = reponse.data;
+          const container = document.getElementById('list');
+          data.forEach((result, idx) => {
+            // Create card element
+            const card = document.createElement('div');
+            card.classList = 'card-body';
+            // Construct card content
+            const content = `
+<div class="item" data-key="${result.id}">
+                <div class="img">
+                    <img src="${result.img}" alt="">
+                </div>
+                <div class="content">
+                    <div class="title">${result.name}</div>
+                    <div class="price">${result.value} ETH</div>
+                    <button type="button" class="add" data-toggle="modal"  onclick="buyETH('${result.id}','${result.wallet}','${result.name}','${result.value}')"
+                        data-target="#exampleModalLong">Buy</button>
+                </div>
+            </div>
+`;
+            // onclick="buyETH(${result.id},${result.img},${result.name},${result.value})"
+            // Append newyly created card element to the container
+            container.innerHTML += content;
+          })
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      console.log(reponse);
+    }
+//         const apiResult = [{
+//             title: "title1",
+//             description: "desc1",
+//             price: 2001
+//         }, {
+//             title: "title2",
+//             description: "desc2",
+//             price: 2002
+//         }, {
+//             title: "title3",
+//             description: "desc3",
+//             price: 2003
+//         }, {
+//             title: "title3",
+//             description: "desc3",
+//             price: 2003
+//         }];
+
+
+//         const container = document.getElementById('list-card');
+
+//         apiResult.forEach((result, idx) => {
+//             // Create card element
+//             const card = document.createElement('div');
+//             card.classList = 'card-body';
+
+//             // Construct card content
+//             const content = `
+//   <div class="item" data-key="${idx}">
+//                     <div class="img">
+//                         <img src="./images/img2.png" alt="">
+//                     </div>
+//                     <div class="content">
+//                         <div class="title">${result.title}</div>
+//                         <div class="des">
+//                             ${result.description}
+//                         </div>
+//                         <div class="price">${result.price} ETH</div>
+//                         <button type="button" class="add" data-toggle="modal"
+//                             data-target="#exampleModalLong1">Edit</button>
+//                         <button class="remove" onclick="Remove(1)"><i class="fa-solid fa-trash-can fa-lg"></i></button>
+//                     </div>
+//                 </div>
+// `;
+
+//             // Append newyly created card element to the container
+//             container.innerHTML += content;
+//         })
+  </script>
 </body>
 
 </html>
