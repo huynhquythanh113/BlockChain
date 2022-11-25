@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLockchain</title>
+    <script src="index.js"></script>
+
+</head>
+
+<body>
+    <button onclick="getAccount()">Show Account</button>
+    <h2>Account: <span id="showAccount">Undefine</span></h2>
+    <button onclick="connectWallet()">Connect to wallet</button>
+    <button onclick="checkBalance()">Check balance</button>
+    <button onclick="sendTransaction()">Send transactin</button>
+    <button onclick="checkBalanceFromConstract()">Check Balance from constract</button>
+    <button onclick="goToInfor()">Page infor</button>
+    <span id="span"></span>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function connectWallet() {
+            if (window.ethereum.isConnected()) {
+                // sessionStorage.setItem("lastname", "Smith");  
+                window.location.assign("http://localhost:5500/infor.html")
+            }
+            else {
+                alert("Log acc faileed");
+            }
+        }
+        function goToInfor() {
+
+        }
+    </script>
+    <script>
+
+    </script>
+</body>
+
+</html>
