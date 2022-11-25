@@ -358,8 +358,10 @@ async function editProduct(){
       const response = await axios.put(`https://blockccapi.herokuapp.com/product`,formData)
         .then(function (response) {
           console.log(response.data);
-          // $("#exampleModalLong1").modal("hide");
-          // window.location.reload();
+          success("Edit success!");
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
         })
         .catch(function (response) {
           error1(response);
@@ -382,8 +384,10 @@ async function editProduct(){
       const response = await axios.put(`https://blockccapi.herokuapp.com/product`,formData)
         .then(function (response) {
           console.log(response.data);
-          // $("#exampleModalLong1").modal("hide");
-          // window.location.reload();
+          success("Edit success!");
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
         })
         .catch(function (response) {
           error1(response);
