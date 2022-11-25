@@ -25,7 +25,7 @@ function pageMyProduct() {
   window.location.assign("http://localhost:5501/myproduct.html");
 }
 function pageHome() {
-  const a = "http://localhost:5501/product.html";
+  const a = "http://localhost:5501/index.html";
   window.location.assign(a);
 }
 
@@ -293,7 +293,12 @@ function chooseGas1(){
     document.getElementById("gasPrice1").value ='';
   }
 }
-
+async function searchWallet(){
+  var x = document.getElementById("searchWallet").value;
+  const a = "http://localhost:5501/myproduct.html?wallet=" +x.toString();
+  window.location.assign(a);
+  console.log(a);
+}
 async function Remove(id){
   try {
     const remove = await axios.delete(`https://blockccapi.herokuapp.com/product/${id}`).then((response)=>{
