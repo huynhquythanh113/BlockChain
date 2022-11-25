@@ -278,3 +278,12 @@ i {
 .hidden-wallet {
     display: none;
 }
+.h2-balance {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.balance-check {
+    margin-right: 20px;
+    color: #f3960e;
+}

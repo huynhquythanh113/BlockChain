@@ -37,11 +37,6 @@
         <div class="logo">
           <a href="./index.html"> BLOCK<span>CHAIN</span></a>
         </div>
-        <div class="form">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" placeholder="Search...">
-          <button>Search</button>
-        </div>
         <div class="user-action">
           <div class="form">
             <button type="button" onclick="pageMyProduct()">
@@ -60,7 +55,10 @@
           </div>
         </div>
       </div>
-      <h2>PRODUCTS</h2>
+      <div class="h2-balance">
+        <h2>PRODUCTS</h2>
+        <div class="balance-check" id="balance-wallet">Check Balance</div>
+      </div>
       <div class="list" id="list">
         <!-- <div class="item" data-key="1">
                     <div class="img">
@@ -264,81 +262,85 @@
     });
   </script>
   <script>
+    checkbalance();
+    getAllProduct();
+  </script>
+  <script>
     const a = window.location.href;
     var url = new URL(a);
     var c = url.searchParams.get("wallet");
     console.log(c);
-    if (c != null) {
-      const reponse = axios
-        .get(`https://blockccapi.herokuapp.com/product/${c}`)
-        .then((reponse) => {
-          const data = reponse.data;
-          const container = document.getElementById('list');
-          data.forEach((result, idx) => {
-            // Create card element
-            const card = document.createElement('div');
-            card.classList = 'card-body';
-            // Construct card content
-            const content = `
-<div class="item" data-key="${result.id}">
-                <div class="img">
-                    <img src="${result.img}" alt="">
-                </div>
-                <div class="content">
-                    <div class="title">${result.name}</div>
-                    <div class="price">${result.value} ETH</div>
-                    <button type="button" class="add" data-toggle="modal"
-                        data-target="#exampleModalLong1">Edit</button>
-                    <button class="remove" onclick="Remove(1)"><i class="fa-solid fa-trash-can fa-lg"></i></button>
-                </div>
-            </div>
-`;
+//     if (c != null) {
+//       const reponse = axios
+//         .get(`https://blockccapi.herokuapp.com/product/${c}`)
+//         .then((reponse) => {
+//           const data = reponse.data;
+//           const container = document.getElementById('list');
+//           data.forEach((result, idx) => {
+//             // Create card element
+//             const card = document.createElement('div');
+//             card.classList = 'card-body';
+//             // Construct card content
+//             const content = `
+// <div class="item" data-key="${result.id}">
+//                 <div class="img">
+//                     <img src="${result.img}" alt="">
+//                 </div>
+//                 <div class="content">
+//                     <div class="title">${result.name}</div>
+//                     <div class="price">${result.value} ETH</div>
+//                     <button type="button" class="add" data-toggle="modal"
+//                         data-target="#exampleModalLong1">Edit</button>
+//                     <button class="remove" onclick="Remove(1)"><i class="fa-solid fa-trash-can fa-lg"></i></button>
+//                 </div>
+//             </div>
+// `;
 
-            // Append newyly created card element to the container
-            container.innerHTML += content;
-          })
-          console.log(data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-      console.log(reponse);
-    }
-    else {
-      const reponse = axios
-        .get(`https://blockccapi.herokuapp.com/product`)
-        .then((reponse) => {
-          const data = reponse.data;
-          const container = document.getElementById('list');
-          data.forEach((result, idx) => {
-            // Create card element
-            const card = document.createElement('div');
-            card.classList = 'card-body';
-            // Construct card content
-            const content = `
-<div class="item" data-key="${result.id}">
-                <div class="img">
-                    <img src="${result.img}" alt="">
-                </div>
-                <div class="content">
-                    <div class="title">${result.name}</div>
-                    <div class="price">${result.value} ETH</div>
-                    <button type="button" class="add" data-toggle="modal"  onclick="buyETH('${result.id}','${result.wallet}','${result.name}','${result.value}')"
-                        data-target="#exampleModalLong">Buy</button>
-                </div>
-            </div>
-`;
-            // onclick="buyETH(${result.id},${result.img},${result.name},${result.value})"
-            // Append newyly created card element to the container
-            container.innerHTML += content;
-          })
-          console.log(data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-      console.log(reponse);
-    }
+//             // Append newyly created card element to the container
+//             container.innerHTML += content;
+//           })
+//           console.log(data);
+//         })
+//         .catch((error) => {
+//           console.log(error);
+//         });
+//       console.log(reponse);
+//     }
+//     else {
+//       const reponse = axios
+//         .get(`https://blockccapi.herokuapp.com/product`)
+//         .then((reponse) => {
+//           const data = reponse.data;
+//           const container = document.getElementById('list');
+//           data.forEach((result, idx) => {
+//             // Create card element
+//             const card = document.createElement('div');
+//             card.classList = 'card-body';
+//             // Construct card content
+//             const content = `
+// <div class="item" data-key="${result.id}">
+//                 <div class="img">
+//                     <img src="${result.img}" alt="">
+//                 </div>
+//                 <div class="content">
+//                     <div class="title">${result.name}</div>
+//                     <div class="price">${result.value} ETH</div>
+//                     <button type="button" class="add" data-toggle="modal"  onclick="buyETH('${result.id}','${result.wallet}','${result.name}','${result.value}')"
+//                         data-target="#exampleModalLong">Buy</button>
+//                 </div>
+//             </div>
+// `;
+//             // onclick="buyETH(${result.id},${result.img},${result.name},${result.value})"
+//             // Append newyly created card element to the container
+//             container.innerHTML += content;
+//           })
+//           console.log(data);
+//         })
+//         .catch((error) => {
+//           console.log(error);
+//         });
+//       console.log(reponse);
+//     }
 //         const apiResult = [{
 //             title: "title1",
 //             description: "desc1",

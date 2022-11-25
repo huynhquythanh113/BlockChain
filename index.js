@@ -293,12 +293,7 @@ function chooseGas1(){
     document.getElementById("gasPrice1").value ='';
   }
 }
-async function searchWallet(){
-  var x = document.getElementById("searchWallet").value;
-  const a = "http://localhost:5501/myproduct.html?wallet=" +x.toString();
-  window.location.assign(a);
-  console.log(a);
-}
+
 async function Remove(id){
   try {
     const remove = await axios.delete(`https://blockccapi.herokuapp.com/product/${id}`).then((response)=>{
@@ -313,8 +308,93 @@ async function Remove(id){
       error1(error);
   }
 }
+async function Edit(id){
+  const fileSelector = document.getElementById('file-selector1');
+  const output = document.getElementById('imgEdit');
+  try {
+    const edit = await axios.get(`https://blockccapi.herokuapp.com/productID/${id}`).then((response)=>{
+       document.querySelector('[name="idEdit"]').value = response.data.id;
+                document.querySelector('[name="nameEdit"]').value = response.data.name;
+                document.querySelector('[name="walletEdit"]').value = response.data.wallet;
+                document.getElementById("imgEdit").src = response.data.img;
+                
+                document.querySelector('[name="valueEdit"]').value = response.data.value;
+    console.log(response.data);
+    })
+    ;
+  } catch (error) {
+    error1(error);
+  }
+}
 function reloadPage(){
   window.location.reload();
+}
+async function editProduct(){
+  const fileSelector = document.getElementById('file-selector1').files[0];
+    const id = document.querySelector('[name="idEdit"]').value ;
+    const wallet = document.querySelector('[name="walletEdit"]').value ;
+    const value = document.querySelector('[name="valueEdit"]').value ;
+    const name = document.querySelector('[name="nameEdit"]').value ;
+    if(fileSelector==null){
+      var f = new File([""], "filename");
+      const fileSelector1 = document.getElementById('file-selector1').value;
+      const formData = new FormData();
+      formData.append('id', id);
+      formData.append('wallet', wallet);
+      formData.append('file', f);
+      formData.append('name', name);
+      formData.append('value', value);
+  
+      const values = [...formData.entries()];
+      console.log(values);
+      console.log(formData);
+      // formData.set()
+      const output = document.getElementById('imgEdit').src;
+      const response = await axios.put(`https://blockccapi.herokuapp.com/product`,formData)
+        .then(function (response) {
+          console.log(response.data);
+          // $("#exampleModalLong1").modal("hide");
+          // window.location.reload();
+        })
+        .catch(function (response) {
+          error1(response);
+        });
+    }
+    else {
+      const fileSelector2 = document.getElementById('file-selector1').files[0];
+      const formData = new FormData();
+      formData.append('id', id);
+      formData.append('wallet', wallet);
+      formData.append('file', fileSelector2);
+      formData.append('name', name);
+      formData.append('value', value);
+  
+      const values = [...formData.entries()];
+      console.log(values);
+      console.log(formData);
+      // formData.set()
+      const output = document.getElementById('imgEdit').src;
+      const response = await axios.put(`https://blockccapi.herokuapp.com/product`,formData)
+        .then(function (response) {
+          console.log(response.data);
+          // $("#exampleModalLong1").modal("hide");
+          // window.location.reload();
+        })
+        .catch(function (response) {
+          error1(response);
+        });
+    }
+
+
+  
+
+
+ 
+
+//   const id =document.querySelector('[name="idEdit"]').value = response.id;
+//   const name=     document.querySelector('[name="nameEdit"]').value = response.name;
+// const img=      document.querySelector('[name="imgEdit"]').src = response.img;
+// const value=    document.querySelector('[name="valueEdit"]').value = response.value;
 }
 async function buyETH(id,wallet,name,value){
   accounts = await ethereum.request({ method: "eth_requestAccounts" });
@@ -324,6 +404,65 @@ async function buyETH(id,wallet,name,value){
   console.log(value);
   document.getElementById("value1").value = value;
   document.getElementById("wallet").value = wallet;
+}
+async function getAllProduct(){
+  accounts = await ethereum.request({ method: "eth_requestAccounts" });
+    const reponse = axios
+      .get(`https://blockccapi.herokuapp.com/product`)
+      .then((reponse) => {
+        const data = reponse.data;
+        const container = document.getElementById('list');
+        data.forEach((result, idx) => {
+          if(result.wallet !=accounts[0]){
+          // Create card element
+          const card = document.createElement('div');
+          card.classList = 'card-body';
+          // Construct card content
+          const content = `
+<div class="item" data-key="${result.id}">
+              <div class="img">
+                  <img src="${result.img}" alt="">
+              </div>
+              <div class="content">
+                  <div class="title">${result.name}</div>
+                  <div class="price">${result.value} ETH</div>
+                  <button type="button" class="add" data-toggle="modal"  onclick="buyETH('${result.id}','${result.wallet}','${result.name}','${result.value}')"
+                      data-target="#exampleModalLong">Buy</button>
+              </div>
+          </div>
+`;
+          // onclick="buyETH(${result.id},${result.img},${result.name},${result.value})"
+          // Append newyly created card element to the container
+          container.innerHTML += content;}
+          else {
+            const card = document.createElement('div');
+            card.classList = 'card-body';
+            // Construct card content
+            const content = `
+  <div class="item" data-key="${result.id}">
+                <div class="img">
+                    <img src="${result.img}" alt="">
+                </div>
+                <div class="content">
+                    <div class="title">${result.name}</div>
+                    <div class="price">${result.value} ETH</div>
+                    <button disabled type="button" class="add" data-toggle="modal" 
+                        data-target="#exampleModalLong">Yourself</button>
+                </div>
+            </div>
+  `;
+            // onclick="buyETH(${result.id},${result.img},${result.name},${result.value})"
+            // Append newyly created card element to the container
+            container.innerHTML += content;
+          }
+        })
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    console.log(reponse);
+  
 }
 async function buyTransaction() {
   accounts = await ethereum.request({ method: "eth_requestAccounts" });
@@ -432,8 +571,8 @@ async function getMyproduct(){
                         <div class="content">
                             <div class="title">${result.name}</div>
                             <div class="price">${result.value} ETH</div>
-                            <button type="button" class="add" data-toggle="modal"
-                                data-target="#exampleModalLong1">Edit</button>
+                            <button type="button" class="add" data-toggle="modal" onclick="Edit(${result.id})"
+                            data-target="#exampleModalLong2">Edit</button>
                             <button class="remove" onclick="Remove(${result.id})"><i class="fa-solid fa-trash-can fa-lg"></i></button>
                         </div>
                     </div>
@@ -452,3 +591,18 @@ async function getMyproduct(){
     
   }
 }
+async function checkbalance(){
+  accounts = await ethereum.request({ method: "eth_requestAccounts" });
+if(accounts[0]!=null){
+  let balance = await window.ethereum
+    .request({ method: "eth_getBalance", params: [accounts[0], "latest"] })
+    .catch((err) => {
+      console.log(err);
+    });
+    const balanceEth=   parseInt(balance) / Math.pow(10, 18);
+    const eth  = balanceEth +" ETH";
+    document.getElementById("balance-wallet").innerHTML = eth;
+
+}
+}
+
